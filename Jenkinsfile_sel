@@ -1,18 +1,18 @@
 pipeline {
     agent {
         node {
-            label 'slave2'
+            label 'slave-2'
         }
     }
     stages {
         stage('SCM checkout'){
             steps {
-		        git "https://github.com/vistasunil/devopsIQ.git"
+		        git "https://github.com/cpchander/devopsIQ.git"
             }
 		}
 	    stage('Build docker Image'){
 	        steps {
-    	        	sh "sudo docker build /home/ubuntu/jenkins/workspace/seljob -t vistasunil/devopsdemo"
+    	        	sh "sudo docker build /home/cpchander/jenkins/workspace/seljob -t vistasunil/devopsdemo"
 	        }
 	    }
 	    stage('Remove existing website'){
@@ -27,7 +27,7 @@ pipeline {
 	    }
 	    stage ('SCM checkout Selenium'){
 	        steps {
-		        git "https://github.com/vistasunil/selenium.git"
+		        git "https://github.com/cpchander/selenium.git"
 	        }
 		}
     	stage ('Test Website'){
