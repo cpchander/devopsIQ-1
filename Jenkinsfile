@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave2'
+            label 'slave-2'
         }
     }
     parameters {
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('SCM checkout'){
             steps {
-		git "https://github.com/vistasunil/devopsIQ.git"
+		git "https://github.com/cpchander/devopsIQ-1.git"
             }
 	}
 	stage('Remove dockers'){
@@ -22,7 +22,7 @@ pipeline {
 	}
 	stage('Build'){
 	    steps {
-		    sh "sudo docker build /home/ubuntu/jenkins/workspace/${JOB_NAME} -t vistasunil/devopsdemo"
+		    sh "sudo docker build /home/cpchander/jenkins/workspace/${JOB_NAME} -t vistasunil/devopsdemo"
 	   }
 	}
 	stage('Docker Push'){
