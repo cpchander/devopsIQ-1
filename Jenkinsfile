@@ -7,7 +7,7 @@ pipeline {
     parameters {
     	string(name: 'serverIP', defaultValue: 'None', description: 'Enter Server IP ')
 	string(name: 'servername', defaultValue: 'None', description: 'Enter Ansible slave name ')
-	password(name: 'dockerpass', description: 'Enter docker login password ')
+	password(name: 'dockerpass', description: 'Enter docker login passwordd ')
 
     }
     stages {
