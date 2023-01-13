@@ -34,19 +34,19 @@ pipeline {
 	}
 	stage('Configure servers with Docker and deploy website') {
             	steps {
-			sh 'ansible-playbook docker.yaml -e "hostname=${servername}"'
+			sh 'ansible-playbook /home/cpchander/workspace/mypipeline/docker.yaml -e "hostname=${servername}"'
             	}
         }
 	stage('Install Chrome browser') {
             	steps {
-                	sh 'ansible-playbook chrome.yaml -e "hostname=localhost"'
+                	sh 'ansible-playbook /home/cpchander/workspace/mypipeline/chrome.yaml -e "hostname=localhost"'
             	}
         }
 	stage ('Testing'){
 		steps {
 			sh "sudo apt install python3-pip -y"
 			sh "pip3 install selenium"
-			sh "python3 selenium_test.py ${params.serverIP}"
+			sh "python3 /home/cpchander/workspace/mypipeline/selenium_test.py ${params.serverIP}"
 		}
 	}
     }
