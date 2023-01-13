@@ -12,7 +12,7 @@ pipeline {
 		}
 	    stage('Build docker Image'){
 	        steps {
-    	        	sh "sudo docker build /home/cpchander/jenkins/workspace/seljob -t vistasunil/devopsdemo"
+    	        	sh "sudo docker build /home/cpchander/workspace/seljob -t cpchander/devopsdemo"
 	        }
 	    }
 	    stage('Remove existing website'){
@@ -22,7 +22,7 @@ pipeline {
 	    }
 	    stage('Deploy website'){
 	        steps {
-    	        	sh "sudo docker run -d -p 82:80 --name mywebsite vistasunil/devopsdemo"
+    	        	sh "sudo docker run -d -p 82:80 --name mywebsite cpchander/devopsdemo"
 	        }
 	    }
 	    stage ('SCM checkout Selenium'){
