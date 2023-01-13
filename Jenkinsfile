@@ -1,13 +1,14 @@
 pipeline {
     agent {
         node {
-            label 'slave-1'
+            label 'slave-2'
         }
     }
     parameters {
-    	string(name: 'serverIP', defaultValue: 'None', description: '34.131.73.46')
-	string(name: 'servername', defaultValue: 'None', description: '34.131.195.216')
-	password(name: 'dockerpass', description: 'Master@3419')	    
+    	string(name: 'serverIP', defaultValue: 'None', description: 'Enter Server IP ')
+	string(name: 'servername', defaultValue: 'None', description: 'Enter Ansible slave name ')
+	password(name: 'dockerpass', description: 'Enter docker login password ')
+
     }
     stages {
         stage('SCM checkout'){
