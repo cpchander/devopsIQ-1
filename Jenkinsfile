@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave-2'
+            label 'slave-1'
         }
     }
     parameters {
@@ -34,12 +34,12 @@ pipeline {
 	}
 	stage('Configure servers with Docker and deploy website') {
             	steps {
-			sh 'ansible-playbook /home/cpchander/workspace/mypipeline/docker.yaml -e "hostname=${servername}"'
+			sh 'sudo ansible-playbook /home/cpchander/workspace/mypipeline/docker.yaml -e "hostname=${servername}"'
             	}
         }
 	stage('Install Chrome browser') {
             	steps {
-                	sh 'ansible-playbook /home/cpchander/workspace/mypipeline/chrome.yaml -e "hostname=localhost"'
+                	sh 'sudo ansible-playbook /home/cpchander/workspace/mypipeline/chrome.yaml -e "hostname=localhost"'
             	}
         }
 	stage ('Testing'){
